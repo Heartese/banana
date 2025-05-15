@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image:url({{url_for('static', filename='image.jpg')}});
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            background-size:100% 100%;
+            background-position:center;
+        }
+        .container {
+            text-align: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Disease Detection</h1>
+        <a href="/banana_detection" class="btn">Banana Disease Detection</a>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

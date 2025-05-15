@@ -1,0 +1,30 @@
+item {
+    name: "freshripe",
+    id: 1,
+    display_name: "freshripe"
+}
+item {
+    name: "freshunripe",
+    id: 2,
+    display_name: "freshunripe"
+}
+item {
+    name: "overripe",
+    id: 3,
+    display_name: "overripe"
+}
+item {
+    name: "ripe",
+    id: 4,
+    display_name: "ripe"
+}
+item {
+    name: "rotten",
+    id: 5,
+    display_name: "rotten"
+}
+item {
+    name: "unripe",
+    id: 6,
+    display_name: "unripe"
+}

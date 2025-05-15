@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image:url({{url_for('static', filename='image.jpg')}});
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            background-size:100% 100%;
+            background-position:center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            margin-bottom: 5px;
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+        }
+
+        .back-btn a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .back-btn a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Uploaded Image</h1>
+        <img src="data:image/jpeg;base64,{{ img_str }}" alt="Uploaded Image">
+        <h2>Detected Classes:</h2>
+        <ul>
+            {% for class_name in class_names %}
+            <li>{{ class_name }}</li>
+            {% endfor %}
+        </ul>
+
+       <h2>Recommendations:</h2>
+        <ul>
+            {% for class_name in class_names %}
+                {% if 'freshripe' in class_name.lower() %}
+                    <li>The banana is fresh and ripe. Perfect for eating or using in fruit salads.</li>
+                {% elif 'freshunripe' in class_name.lower() %}
+                    <li>The banana is fresh but unripe. Store at room temperature and wait a few days for ripening.</li>
+                {% elif 'ripe' in class_name.lower() %}
+                    <li>The banana is ripe. Ideal for eating or smoothies.</li>
+                {% elif 'unripe' in class_name.lower() %}
+                    <li>The banana is unripe. Let it sit at room temperature until it ripens.</li>
+                {% elif 'overripe' in class_name.lower() %}
+                    <li>The banana is overripe. Best used for banana bread or composting.</li>
+                {% elif 'rotten' in class_name.lower() %}
+                    <li>The banana is rotten. Decompose! Use it a fertilizer.</li>
+                {% else %}
+                    <li>No specific recommendation available for: {{ class_name }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+        <div class="back-btn">
+            <a href="/">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
